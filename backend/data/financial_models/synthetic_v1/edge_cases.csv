@@ -1,0 +1,13 @@
+fuel_type,repair_record_id,price_date,repair_complexity,mileage,part_number,edge_case_label,is_synthetic,component,vehicle_category,engine_type,vehicle_make,part,dataset_version,vehicle_id,transmission_type,parts_cost,vehicle_model,number_of_parts,model_year,currency,vehicle_age_years,repair_action,labour_hours,repair_category
+PETROL,EDGE-001,2023-06-01,MEDIUM,,PN-EDGE-001,missing_mileage,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,Sedan,1,2020,USD,3,Replacement,1.5,BRAKES
+PETROL,EDGE-002,2023-06-01,MEDIUM,40000,PN-EDGE-001,missing_model,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,,1,2020,USD,3,Replacement,1.5,BRAKES
+PETROL,EDGE-003,2023-06-01,MEDIUM,40000,PN-EDGE-001,missing_repair_category,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,Sedan,1,2020,USD,3,Replacement,1.5,
+PETROL,EDGE-004,2023-06-01,MEDIUM,40000,PN-EDGE-001,missing_component,true,,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,Sedan,1,2020,USD,3,Replacement,1.5,BRAKES
+PETROL,EDGE-005,2023-06-01,MEDIUM,40000,PN-EDGE-001,unsupported_currency,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,Sedan,1,2020,INR,3,Replacement,1.5,BRAKES
+PETROL,EDGE-006,2023-06-01,MEDIUM,40000,PN-EDGE-001,negative_parts,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,-10,Sedan,1,2020,USD,3,Replacement,1.5,BRAKES
+PETROL,EDGE-007,2023-06-01,MEDIUM,40000,PN-EDGE-001,negative_labour,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,Sedan,1,2020,USD,3,Replacement,-1,BRAKES
+PETROL,EDGE-008,2023-06-01,MEDIUM,40000,PN-EDGE-001,extreme_parts,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,999999,Sedan,1,2020,USD,3,Replacement,1.5,BRAKES
+PETROL,EDGE-009,2023-06-01,MEDIUM,40000,PN-EDGE-001,extreme_labour,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,Sedan,1,2020,USD,3,Replacement,200,BRAKES
+PETROL,EDGE-010,2023-06-01,MEDIUM,40000,PN-EDGE-001,unknown_category,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,Sedan,1,2020,USD,3,Replacement,1.5,INVALID_X
+PETROL,EDGE-DUP-001,2023-06-01,MEDIUM,40000,PN-EDGE-001,duplicate_id,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,Sedan,1,2020,USD,3,Replacement,1.5,BRAKES
+PETROL,EDGE-DUP-001,2023-06-01,MEDIUM,40000,PN-EDGE-001,duplicate_id_second_row,true,Brake system,SEDAN,I4,Apex,Brake pads,synthetic_v1.1,VH-EDGE-001,AUTOMATIC,200.0,Sedan,1,2020,USD,3,Replacement,1.5,BRAKES

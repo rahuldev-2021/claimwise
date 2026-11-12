@@ -1,0 +1,169 @@
+{
+  "task": "parts_cost",
+  "evaluation_strategy": "group_kfold",
+  "evaluation_note": "group_kfold on ['vehicle_make', 'vehicle_model'] (provisional until approved dataset EDA confirms)",
+  "candidates": [
+    {
+      "candidate": "xgboost",
+      "status": "NOT RUN",
+      "reason": "xgboost optional dependency not installed (pip install -e '.[ml-xgb]')",
+      "metrics": {}
+    },
+    {
+      "candidate": "dummy_mean",
+      "status": "RUN",
+      "isolated_fit": false,
+      "metrics": {
+        "train": {
+          "mae": 402.342402225445,
+          "rmse": 572.3825681904042,
+          "r2": 0.0,
+          "median_absolute_error": 332.75644491826574
+        },
+        "validation": {
+          "mae": 399.636389381076,
+          "rmse": 544.480508019621,
+          "r2": -1.7500311117801814e-05,
+          "median_absolute_error": 337.39644491826573
+        }
+      },
+      "train_seconds": 0.541
+    },
+    {
+      "candidate": "linear_regression",
+      "status": "RUN",
+      "isolated_fit": false,
+      "metrics": {
+        "train": {
+          "mae": 88.32244600495478,
+          "rmse": 147.98172057489583,
+          "r2": 0.9331589371271125,
+          "median_absolute_error": 56.67025328149117
+        },
+        "validation": {
+          "mae": 87.2918215274359,
+          "rmse": 136.58996767964507,
+          "r2": 0.9370666962891836,
+          "median_absolute_error": 60.35963274811138
+        }
+      },
+      "train_seconds": 0.133
+    },
+    {
+      "candidate": "ridge",
+      "status": "RUN",
+      "isolated_fit": false,
+      "metrics": {
+        "train": {
+          "mae": 88.21332277201468,
+          "rmse": 147.99004899093774,
+          "r2": 0.933151413281017,
+          "median_absolute_error": 56.81098127453011
+        },
+        "validation": {
+          "mae": 87.1221450582938,
+          "rmse": 136.3948896595337,
+          "r2": 0.937246330819417,
+          "median_absolute_error": 60.47030878222483
+        }
+      },
+      "train_seconds": 0.119
+    },
+    {
+      "candidate": "random_forest",
+      "status": "RUN",
+      "isolated_fit": false,
+      "metrics": {
+        "train": {
+          "mae": 23.772251201137173,
+          "rmse": 44.29349303204657,
+          "r2": 0.9940116515481527,
+          "median_absolute_error": 10.88739999999973
+        },
+        "validation": {
+          "mae": 65.17108043331076,
+          "rmse": 118.34892039476006,
+          "r2": 0.9527532948553296,
+          "median_absolute_error": 30.173800000000142
+        }
+      },
+      "train_seconds": 2.53
+    },
+    {
+      "candidate": "gradient_boosting",
+      "status": "RUN",
+      "isolated_fit": true,
+      "metrics": {
+        "train": {
+          "mae": 71.04190549553121,
+          "rmse": 114.15995089414756,
+          "r2": 0.9602209187105696,
+          "median_absolute_error": 44.87840289428411
+        },
+        "validation": {
+          "mae": 72.7966318147767,
+          "rmse": 114.88031864347334,
+          "r2": 0.9554821492329408,
+          "median_absolute_error": 45.10970364674267
+        }
+      },
+      "train_seconds": 6.039
+    },
+    {
+      "candidate": "hist_gradient_boosting",
+      "status": "RUN",
+      "isolated_fit": false,
+      "metrics": {
+        "train": {
+          "mae": 50.23066899270514,
+          "rmse": 86.36436242621758,
+          "r2": 0.9772334960682182,
+          "median_absolute_error": 26.070823992288013
+        },
+        "validation": {
+          "mae": 61.668808499573096,
+          "rmse": 112.01815070513696,
+          "r2": 0.9576727821284773,
+          "median_absolute_error": 28.260420412879114
+        }
+      },
+      "train_seconds": 0.96
+    }
+  ],
+  "selected": {
+    "candidate": "hist_gradient_boosting",
+    "status": "RUN",
+    "isolated_fit": false,
+    "metrics": {
+      "train": {
+        "mae": 50.23066899270514,
+        "rmse": 86.36436242621758,
+        "r2": 0.9772334960682182,
+        "median_absolute_error": 26.070823992288013
+      },
+      "validation": {
+        "mae": 61.668808499573096,
+        "rmse": 112.01815070513696,
+        "r2": 0.9576727821284773,
+        "median_absolute_error": 28.260420412879114
+      }
+    },
+    "train_seconds": 0.96
+  },
+  "selection_outcome": "SELECTED",
+  "selection_details": {
+    "criteria": {
+      "min_relative_mae_improvement_vs_dummy": 0.02,
+      "weak_r2_threshold": 0.0,
+      "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+    },
+    "selected_candidate": "hist_gradient_boosting",
+    "validation_mae": 61.668808499573096,
+    "validation_r2": 0.9576727821284773,
+    "dummy_validation_mae": 399.636389381076,
+    "relative_mae_improvement_vs_dummy": 0.8456877047781342,
+    "reason": "meets validation improvement and R\u00b2 criteria"
+  },
+  "synthetic_data_evaluation": true,
+  "test_path_reserved": "data\\financial_models\\synthetic_v1\\test.csv"
+}

@@ -1,0 +1,41 @@
+{
+  "updated_at": "2026-11-11T10:34:23.549884+00:00",
+  "entries": [
+    {
+      "task": "parts_cost",
+      "version": "20261111103420",
+      "model_path": "parts_cost/20261111103420/model.joblib",
+      "preprocessor_path": "parts_cost/20261111103420/preprocessor.joblib",
+      "feature_schema_hash": "b3078ab24c702acb",
+      "sklearn_version": "1.8.0",
+      "training_data_version": "tests\\fixtures\\financial\\tiny_training.csv",
+      "evaluation_strategy": "group_kfold: group_kfold on ['vehicle_make', 'vehicle_model'] (provisional until approved dataset EDA confirms)",
+      "metrics": {
+        "in_sample_mae": 999.0,
+        "provisional": true,
+        "note": "SYNTHETIC if fixture used"
+      },
+      "status": "trained",
+      "trusted": true,
+      "trained_at": "2026-11-11T10:34:20.713181+00:00"
+    },
+    {
+      "task": "labour_hours",
+      "version": "20261111103423",
+      "model_path": "labour_hours/20261111103423/model.joblib",
+      "preprocessor_path": "labour_hours/20261111103423/preprocessor.joblib",
+      "feature_schema_hash": "b3078ab24c702acb",
+      "sklearn_version": "1.8.0",
+      "training_data_version": "tests\\fixtures\\financial\\tiny_training.csv",
+      "evaluation_strategy": "group_kfold: group_kfold on ['vehicle_make', 'vehicle_model'] (provisional until approved dataset EDA confirms)",
+      "metrics": {
+        "in_sample_mae": 3.032,
+        "provisional": true,
+        "note": "SYNTHETIC if fixture used"
+      },
+      "status": "trained",
+      "trusted": true,
+      "trained_at": "2026-11-11T10:34:23.549884+00:00"
+    }
+  ]
+}

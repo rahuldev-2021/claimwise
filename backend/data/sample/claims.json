@@ -1,0 +1,277 @@
+[
+  {
+    "claim_id": "CLM-001",
+    "submission_date": "2026-09-15T10:30:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1001",
+      "make": "Ford",
+      "model": "Mustang",
+      "model_year": 2022,
+      "engine_type": "2.3L EcoBoost I4",
+      "mileage": 45200
+    },
+    "customer_complaint": "The engine produces a continuous rattling noise when accelerating, particularly during cold starts.",
+    "technician_diagnosis": "Inspected the engine and identified abnormal noise around the timing chain assembly. Suspect timing chain tensioner failure.",
+    "recommended_repair": {
+      "repair_category": "ENGINE",
+      "part_number": "FR3Z-6006-A",
+      "part_description": "Complete engine block assembly",
+      "recommended_action": "Replace the complete engine block to resolve the noise"
+    },
+    "submitted_parts_cost": "4600.00",
+    "submitted_labour_hours": "63.0",
+    "currency": "USD",
+    "supporting_document_ids": ["DOC-001"],
+    "claim_status": "SUBMITTED"
+  },
+  {
+    "claim_id": "CLM-002",
+    "submission_date": "2026-09-16T14:00:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1002",
+      "make": "Ford",
+      "model": "F-150",
+      "model_year": 2023,
+      "engine_type": "3.5L EcoBoost V6",
+      "mileage": 32100
+    },
+    "customer_complaint": "Squealing noise from the front wheels when braking at low speed.",
+    "technician_diagnosis": "Front brake pads worn below minimum thickness. Rotors show minor scoring within resurfacing tolerance.",
+    "recommended_repair": {
+      "repair_category": "BRAKING",
+      "part_number": "HL3Z-2001-D",
+      "part_description": "Front brake pad set",
+      "recommended_action": "Replace front brake pads and resurface rotors"
+    },
+    "submitted_parts_cost": "320.00",
+    "submitted_labour_hours": "2.5",
+    "currency": "USD",
+    "supporting_document_ids": ["DOC-002"],
+    "claim_status": "UNDER_REVIEW"
+  },
+  {
+    "claim_id": "CLM-003",
+    "submission_date": "2026-09-17T09:15:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1003",
+      "make": "Ford",
+      "model": "Explorer",
+      "model_year": 2021,
+      "engine_type": "2.3L EcoBoost I4",
+      "mileage": 68400
+    },
+    "customer_complaint": "Engine temperature gauge rises to the red zone after approximately 20 minutes of highway driving. No visible coolant leak.",
+    "technician_diagnosis": "Pressure test passed. Water pump impeller shows cavitation damage. Thermostat opens within spec. Recommend water pump replacement.",
+    "recommended_repair": {
+      "repair_category": "COOLING",
+      "part_number": "PW-423",
+      "part_description": "Engine water pump assembly",
+      "recommended_action": "Replace engine water pump"
+    },
+    "submitted_parts_cost": "750.00",
+    "submitted_labour_hours": "8.0",
+    "currency": "USD",
+    "supporting_document_ids": ["DOC-003"],
+    "claim_status": "SUBMITTED"
+  },
+  {
+    "claim_id": "CLM-004",
+    "submission_date": "2026-09-18T11:45:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1004",
+      "make": "Ford",
+      "model": "Escape",
+      "model_year": 2024,
+      "engine_type": "1.5L EcoBoost I3",
+      "mileage": 12500
+    },
+    "customer_complaint": "Battery warning light illuminated on the dashboard. Headlights dim noticeably when the air conditioning is running.",
+    "technician_diagnosis": "Alternator output measured at 11.2V under load, below the 13.5V minimum. Alternator internal regulator failure confirmed.",
+    "recommended_repair": {
+      "repair_category": "ELECTRICAL",
+      "part_number": "GL3Z-10346-B",
+      "part_description": "Alternator assembly",
+      "recommended_action": "Replace alternator assembly"
+    },
+    "submitted_parts_cost": "620.00",
+    "submitted_labour_hours": "3.0",
+    "currency": "USD",
+    "supporting_document_ids": ["DOC-004"],
+    "claim_status": "SUBMITTED"
+  },
+  {
+    "claim_id": "CLM-005",
+    "submission_date": "2026-09-19T08:30:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1005",
+      "make": "Ford",
+      "model": "Edge",
+      "model_year": 2020,
+      "engine_type": "2.0L EcoBoost I4",
+      "mileage": 78900
+    },
+    "customer_complaint": "Air conditioning blows warm air on the driver side but cold air on the passenger side.",
+    "technician_diagnosis": "Blend door actuator on the driver side is not responding to temperature input. Clicking noise heard behind the dashboard.",
+    "recommended_repair": {
+      "repair_category": "AIR_CONDITIONING",
+      "part_number": "DG9Z-19E616-A",
+      "part_description": "Blend door actuator",
+      "recommended_action": "Replace driver-side blend door actuator"
+    },
+    "submitted_parts_cost": "180.00",
+    "submitted_labour_hours": "4.5",
+    "currency": "USD",
+    "supporting_document_ids": ["DOC-005"],
+    "claim_status": "SUBMITTED"
+  },
+  {
+    "claim_id": "CLM-006",
+    "submission_date": "2026-09-20T13:00:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1006",
+      "make": "Ford",
+      "model": "Bronco",
+      "model_year": 2023,
+      "engine_type": "2.7L EcoBoost V6",
+      "mileage": 28000
+    },
+    "customer_complaint": "Clunking noise from the front suspension when driving over bumps or uneven roads.",
+    "technician_diagnosis": "Front stabilizer bar end links worn. Bushings cracked and play detected on both sides.",
+    "recommended_repair": {
+      "repair_category": "SUSPENSION",
+      "part_number": "KB5Z-5K483-A",
+      "part_description": "Front stabilizer end link kit (pair)",
+      "recommended_action": "Replace front stabilizer bar end links on both sides"
+    },
+    "submitted_parts_cost": "290.00",
+    "submitted_labour_hours": "2.0",
+    "currency": "USD",
+    "supporting_document_ids": ["DOC-006"],
+    "claim_status": "SUBMITTED"
+  },
+  {
+    "claim_id": "CLM-007",
+    "submission_date": "2026-09-21T16:20:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1007",
+      "make": "Ford",
+      "model": "Ranger",
+      "model_year": 2022,
+      "engine_type": "2.3L EcoBoost I4",
+      "mileage": 55000
+    },
+    "customer_complaint": "Transmission hesitates and jerks when shifting from second to third gear. Worse under light acceleration.",
+    "technician_diagnosis": "Transmission fluid is within spec. Adaptive shift strategy reset did not resolve the issue. Suspect valve body solenoid pack malfunction.",
+    "recommended_repair": {
+      "repair_category": "TRANSMISSION",
+      "part_number": "ML3Z-7A100-A",
+      "part_description": "Transmission valve body assembly",
+      "recommended_action": "Replace transmission valve body and solenoid pack"
+    },
+    "submitted_parts_cost": "1850.00",
+    "submitted_labour_hours": "12.0",
+    "currency": "USD",
+    "supporting_document_ids": ["DOC-007"],
+    "claim_status": "SUBMITTED"
+  },
+  {
+    "claim_id": "CLM-008",
+    "submission_date": "2026-09-22T10:00:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1008",
+      "make": "Ford",
+      "model": "Mustang",
+      "model_year": 2021,
+      "engine_type": "5.0L Coyote V8",
+      "mileage": 41000
+    },
+    "customer_complaint": "Engine rattling noise heard at idle and during low-speed acceleration.",
+    "technician_diagnosis": "Timing chain stretch suspected based on noise pattern. No fault codes present.",
+    "recommended_repair": {
+      "repair_category": "ENGINE",
+      "part_number": "BR3Z-6268-A",
+      "part_description": "Timing chain kit with guides and tensioner",
+      "recommended_action": "Replace timing chain, guides and tensioner"
+    },
+    "submitted_parts_cost": "1800.00",
+    "submitted_labour_hours": "20.0",
+    "currency": "USD",
+    "supporting_document_ids": ["DOC-008", "DOC-010"],
+    "claim_status": "SUBMITTED"
+  },
+  {
+    "claim_id": "CLM-009",
+    "submission_date": "2026-09-23T07:45:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1009",
+      "make": "Ford",
+      "model": "Transit",
+      "model_year": 2020,
+      "engine_type": "3.5L V6",
+      "mileage": 120000
+    },
+    "customer_complaint": "Vehicle pulls to the right when braking. Vibration felt through the steering wheel.",
+    "technician_diagnosis": "Right front brake caliper is sticking. Rotor shows uneven wear pattern consistent with caliper drag.",
+    "recommended_repair": {
+      "repair_category": "BRAKING",
+      "part_number": "CK4Z-2B120-A",
+      "part_description": "Front brake caliper assembly",
+      "recommended_action": "Replace right front brake caliper and rotor"
+    },
+    "submitted_parts_cost": "480.00",
+    "submitted_labour_hours": "3.5",
+    "currency": "USD",
+    "supporting_document_ids": [],
+    "claim_status": "SUBMITTED"
+  },
+  {
+    "claim_id": "CLM-010",
+    "submission_date": "2026-09-24T15:30:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1010",
+      "make": "Ford",
+      "model": "Expedition",
+      "model_year": 2022,
+      "engine_type": "3.5L EcoBoost V6",
+      "mileage": 52000
+    },
+    "customer_complaint": "Air conditioning is not cooling the cabin. Compressor clutch does not engage.",
+    "technician_diagnosis": "Refrigerant level is low. Unable to locate the source of the leak. Recommend compressor replacement.",
+    "recommended_repair": {
+      "repair_category": "AIR_CONDITIONING",
+      "part_number": "JL1Z-19703-A",
+      "part_description": "A/C compressor assembly",
+      "recommended_action": "Replace A/C compressor assembly and recharge system"
+    },
+    "submitted_parts_cost": "1100.00",
+    "submitted_labour_hours": "6.0",
+    "currency": "USD",
+    "supporting_document_ids": [],
+    "claim_status": "PENDING_INFORMATION"
+  },
+  {
+    "claim_id": "CLM-011",
+    "submission_date": "2026-09-25T12:00:00Z",
+    "vehicle": {
+      "vehicle_id": "VH-1011",
+      "make": "Ford",
+      "model": "F-250",
+      "model_year": 2023,
+      "engine_type": "6.7L Power Stroke V8",
+      "mileage": 38000
+    },
+    "customer_complaint": "Check engine light on. Loss of power when towing uphill.",
+    "technician_diagnosis": "Diagnostic code P0401: EGR insufficient flow. Visual inspection inconclusive. No further diagnostics performed.",
+    "recommended_repair": {
+      "repair_category": "ENGINE",
+      "part_number": "LC3Z-9D475-A",
+      "part_description": "EGR cooler and valve assembly",
+      "recommended_action": "Replace EGR cooler and valve assembly"
+    },
+    "submitted_parts_cost": "2200.00",
+    "submitted_labour_hours": "14.0",
+    "currency": "USD",
+    "supporting_document_ids": [],
+    "claim_status": "SUBMITTED"
+  }
+]

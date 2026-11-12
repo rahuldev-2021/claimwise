@@ -1,0 +1,76 @@
+{
+  "validated_at": "2026-11-12T05:39:24.159451Z",
+  "dataset_version": "synthetic_v1.1",
+  "files": [
+    {
+      "path": "C:\\Users\\019160\\projects\\claim_wise\\backend\\data\\financial_models\\synthetic_v1\\historical_repairs.csv",
+      "issues": [],
+      "warnings": [],
+      "row_count": 10000,
+      "repair_action_distribution": {
+        "Replacement": 5782,
+        "Repair": 4218
+      }
+    },
+    {
+      "path": "C:\\Users\\019160\\projects\\claim_wise\\backend\\data\\financial_models\\synthetic_v1\\train.csv",
+      "issues": [],
+      "warnings": [],
+      "row_count": 7035,
+      "repair_action_distribution": {
+        "Replacement": 4057,
+        "Repair": 2978
+      }
+    },
+    {
+      "path": "C:\\Users\\019160\\projects\\claim_wise\\backend\\data\\financial_models\\synthetic_v1\\validation.csv",
+      "issues": [],
+      "warnings": [],
+      "row_count": 1477,
+      "repair_action_distribution": {
+        "Repair": 626,
+        "Replacement": 851
+      }
+    },
+    {
+      "path": "C:\\Users\\019160\\projects\\claim_wise\\backend\\data\\financial_models\\synthetic_v1\\test.csv",
+      "issues": [],
+      "warnings": [],
+      "row_count": 1488,
+      "repair_action_distribution": {
+        "Repair": 614,
+        "Replacement": 874
+      }
+    }
+  ],
+  "split_issues": [],
+  "split_counts": {
+    "train": 7035,
+    "validation": 1477,
+    "test": 1488,
+    "historical": 10000
+  },
+  "edge_cases": {
+    "path": "C:\\Users\\019160\\projects\\claim_wise\\backend\\data\\financial_models\\synthetic_v1\\edge_cases.csv",
+    "issues": [
+      "duplicate repair_record_id values",
+      "unsupported currency codes: {'INR'}",
+      "mixed currencies: {'USD', 'INR'}",
+      "vehicle_id VH-EDGE-001 has inconsistent attributes",
+      "vehicle_id VH-EDGE-001 has inconsistent attributes",
+      "non-positive financials in EDGE-006",
+      "non-positive financials in EDGE-007"
+    ],
+    "warnings": [
+      "mileage plausibility warnings: 1",
+      "category imbalance: BRAKES has 83.3%"
+    ],
+    "row_count": 12,
+    "repair_action_distribution": {
+      "Replacement": 12
+    }
+  },
+  "edge_duplicate_id_count": 1,
+  "critical_pass": true,
+  "status": "passed"
+}

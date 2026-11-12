@@ -1,0 +1,1158 @@
+{
+  "dataset": {
+    "dataset_version": "synthetic_v1.1",
+    "generation_script_version": "1.1.0",
+    "random_seed": 42,
+    "currency": "USD",
+    "synthetic_declaration": "All records are simulated. Not OEM pricing or real warranty history.",
+    "total_records": 10000,
+    "split_counts": {
+      "train": 7035,
+      "validation": 1477,
+      "test": 1488
+    },
+    "split_strategy": "Group by vehicle_id 70/15/15 \u2014 prevents same-vehicle leakage across splits",
+    "unique_vehicles": 2714,
+    "date_range": {
+      "min": "2018-01-01",
+      "max": "2024-12-31"
+    },
+    "fingerprint": "2271292ac72f9d2f",
+    "train_rows": 7035,
+    "val_rows": 1477,
+    "test_rows": 1488
+  },
+  "execution": {
+    "candidate_max_seconds": 3600.0,
+    "selection_criteria": {
+      "min_relative_mae_improvement_vs_dummy": 0.02,
+      "weak_r2_threshold": 0.0,
+      "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+    },
+    "xgboost_status": "NOT RUN \u2014 dependency unavailable",
+    "artifacts_dir": "data\\financial_models\\synthetic_v1\\experimental_artifacts",
+    "production_registry_unchanged": true,
+    "parts_seconds": 14.6,
+    "labour_seconds": 10.1,
+    "plot_notes": [
+      "data\\financial_models\\synthetic_v1\\experimental_artifacts\\plots\\parts_cost\\parts_cost_actual_vs_predicted.png",
+      "data\\financial_models\\synthetic_v1\\experimental_artifacts\\plots\\parts_cost\\parts_cost_residuals.png",
+      "data\\financial_models\\synthetic_v1\\experimental_artifacts\\plots\\parts_cost\\parts_cost_absolute_error.png",
+      "data\\financial_models\\synthetic_v1\\experimental_artifacts\\plots\\labour_hours\\labour_hours_actual_vs_predicted.png",
+      "data\\financial_models\\synthetic_v1\\experimental_artifacts\\plots\\labour_hours\\labour_hours_residuals.png",
+      "data\\financial_models\\synthetic_v1\\experimental_artifacts\\plots\\labour_hours\\labour_hours_absolute_error.png"
+    ]
+  },
+  "parts_cost": {
+    "compare": {
+      "task": "parts_cost",
+      "evaluation_strategy": "group_kfold",
+      "evaluation_note": "group_kfold on ['vehicle_make', 'vehicle_model'] (provisional until approved dataset EDA confirms)",
+      "candidates": [
+        {
+          "candidate": "xgboost",
+          "status": "NOT RUN",
+          "reason": "xgboost optional dependency not installed (pip install -e '.[ml-xgb]')",
+          "metrics": {}
+        },
+        {
+          "candidate": "dummy_mean",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 402.342402225445,
+              "rmse": 572.3825681904042,
+              "r2": 0.0,
+              "median_absolute_error": 332.75644491826574
+            },
+            "validation": {
+              "mae": 399.636389381076,
+              "rmse": 544.480508019621,
+              "r2": -1.7500311117801814e-05,
+              "median_absolute_error": 337.39644491826573
+            }
+          },
+          "train_seconds": 0.541
+        },
+        {
+          "candidate": "linear_regression",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 88.32244600495478,
+              "rmse": 147.98172057489583,
+              "r2": 0.9331589371271125,
+              "median_absolute_error": 56.67025328149117
+            },
+            "validation": {
+              "mae": 87.2918215274359,
+              "rmse": 136.58996767964507,
+              "r2": 0.9370666962891836,
+              "median_absolute_error": 60.35963274811138
+            }
+          },
+          "train_seconds": 0.133
+        },
+        {
+          "candidate": "ridge",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 88.21332277201468,
+              "rmse": 147.99004899093774,
+              "r2": 0.933151413281017,
+              "median_absolute_error": 56.81098127453011
+            },
+            "validation": {
+              "mae": 87.1221450582938,
+              "rmse": 136.3948896595337,
+              "r2": 0.937246330819417,
+              "median_absolute_error": 60.47030878222483
+            }
+          },
+          "train_seconds": 0.119
+        },
+        {
+          "candidate": "random_forest",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 23.772251201137173,
+              "rmse": 44.29349303204657,
+              "r2": 0.9940116515481527,
+              "median_absolute_error": 10.88739999999973
+            },
+            "validation": {
+              "mae": 65.17108043331076,
+              "rmse": 118.34892039476006,
+              "r2": 0.9527532948553296,
+              "median_absolute_error": 30.173800000000142
+            }
+          },
+          "train_seconds": 2.53
+        },
+        {
+          "candidate": "gradient_boosting",
+          "status": "RUN",
+          "isolated_fit": true,
+          "metrics": {
+            "train": {
+              "mae": 71.04190549553121,
+              "rmse": 114.15995089414756,
+              "r2": 0.9602209187105696,
+              "median_absolute_error": 44.87840289428411
+            },
+            "validation": {
+              "mae": 72.7966318147767,
+              "rmse": 114.88031864347334,
+              "r2": 0.9554821492329408,
+              "median_absolute_error": 45.10970364674267
+            }
+          },
+          "train_seconds": 6.039
+        },
+        {
+          "candidate": "hist_gradient_boosting",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 50.23066899270514,
+              "rmse": 86.36436242621758,
+              "r2": 0.9772334960682182,
+              "median_absolute_error": 26.070823992288013
+            },
+            "validation": {
+              "mae": 61.668808499573096,
+              "rmse": 112.01815070513696,
+              "r2": 0.9576727821284773,
+              "median_absolute_error": 28.260420412879114
+            }
+          },
+          "train_seconds": 0.96
+        }
+      ],
+      "selected": {
+        "candidate": "hist_gradient_boosting",
+        "status": "RUN",
+        "isolated_fit": false,
+        "metrics": {
+          "train": {
+            "mae": 50.23066899270514,
+            "rmse": 86.36436242621758,
+            "r2": 0.9772334960682182,
+            "median_absolute_error": 26.070823992288013
+          },
+          "validation": {
+            "mae": 61.668808499573096,
+            "rmse": 112.01815070513696,
+            "r2": 0.9576727821284773,
+            "median_absolute_error": 28.260420412879114
+          }
+        },
+        "train_seconds": 0.96
+      },
+      "selection_outcome": "SELECTED",
+      "selection_details": {
+        "criteria": {
+          "min_relative_mae_improvement_vs_dummy": 0.02,
+          "weak_r2_threshold": 0.0,
+          "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+        },
+        "selected_candidate": "hist_gradient_boosting",
+        "validation_mae": 61.668808499573096,
+        "validation_r2": 0.9576727821284773,
+        "dummy_validation_mae": 399.636389381076,
+        "relative_mae_improvement_vs_dummy": 0.8456877047781342,
+        "reason": "meets validation improvement and R\u00b2 criteria"
+      },
+      "synthetic_data_evaluation": true,
+      "test_path_reserved": "data\\financial_models\\synthetic_v1\\test.csv"
+    },
+    "finalize": {
+      "task": "parts_cost",
+      "selection_outcome": "SELECTED",
+      "registered": true,
+      "validation_predict_seconds": 0.0236,
+      "metrics": {
+        "train": {
+          "mae": 50.23066899270514,
+          "rmse": 86.36436242621758,
+          "r2": 0.9772334960682182,
+          "median_absolute_error": 26.070823992288013
+        },
+        "validation": {
+          "mae": 61.668808499573096,
+          "rmse": 112.01815070513696,
+          "r2": 0.9576727821284773,
+          "median_absolute_error": 28.260420412879114
+        },
+        "test": {
+          "mae": 59.33932463387425,
+          "rmse": 115.379251427802,
+          "r2": 0.9600999873206121,
+          "median_absolute_error": 27.597898250524466
+        },
+        "selection_outcome": "SELECTED",
+        "selection_details": {
+          "criteria": {
+            "min_relative_mae_improvement_vs_dummy": 0.02,
+            "weak_r2_threshold": 0.0,
+            "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+          },
+          "selected_candidate": "hist_gradient_boosting",
+          "validation_mae": 61.668808499573096,
+          "validation_r2": 0.9576727821284773,
+          "dummy_validation_mae": 399.636389381076,
+          "relative_mae_improvement_vs_dummy": 0.8456877047781342,
+          "reason": "meets validation improvement and R\u00b2 criteria"
+        }
+      },
+      "registration": {
+        "task": "parts_cost",
+        "version": "20261112054003",
+        "registry_dir": "data\\financial_models\\synthetic_v1\\experimental_artifacts",
+        "status": "trained",
+        "lifecycle": "experimental",
+        "synthetic_data": true,
+        "production_ready": false,
+        "algorithm": "hist_gradient_boosting"
+      },
+      "manifest": "data\\financial_models\\synthetic_v1\\experimental_artifacts\\parts_cost\\20261112054003\\manifest.json",
+      "status": "ok",
+      "algorithm": "hist_gradient_boosting"
+    }
+  },
+  "labour_hours": {
+    "compare": {
+      "task": "labour_hours",
+      "evaluation_strategy": "group_kfold",
+      "evaluation_note": "group_kfold on ['vehicle_make', 'vehicle_model'] (provisional until approved dataset EDA confirms)",
+      "candidates": [
+        {
+          "candidate": "xgboost",
+          "status": "NOT RUN",
+          "reason": "xgboost optional dependency not installed (pip install -e '.[ml-xgb]')",
+          "metrics": {}
+        },
+        {
+          "candidate": "dummy_mean",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 2.0629805348321852,
+              "rmse": 2.8206788205476148,
+              "r2": 0.0,
+              "median_absolute_error": 1.6371058990760483
+            },
+            "validation": {
+              "mae": 2.0308762647734344,
+              "rmse": 2.7702433040882513,
+              "r2": -3.1472045303182483e-07,
+              "median_absolute_error": 1.6671058990760481
+            }
+          },
+          "train_seconds": 0.097
+        },
+        {
+          "candidate": "linear_regression",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 0.4310248807640288,
+              "rmse": 0.6602710285172477,
+              "r2": 0.945205469749138,
+              "median_absolute_error": 0.2903051985917169
+            },
+            "validation": {
+              "mae": 0.43090783713260794,
+              "rmse": 0.6778482359201298,
+              "r2": 0.9401272440359132,
+              "median_absolute_error": 0.2935956178124659
+            }
+          },
+          "train_seconds": 0.114
+        },
+        {
+          "candidate": "ridge",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 0.4303485618147399,
+              "rmse": 0.660323144602867,
+              "r2": 0.9451968193949414,
+              "median_absolute_error": 0.2901847874757837
+            },
+            "validation": {
+              "mae": 0.4301451635192395,
+              "rmse": 0.6777530685722905,
+              "r2": 0.940144054676133,
+              "median_absolute_error": 0.2913253517929002
+            }
+          },
+          "train_seconds": 0.096
+        },
+        {
+          "candidate": "random_forest",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 0.12039130063965885,
+              "rmse": 0.1909361114416339,
+              "r2": 0.9954178545372875,
+              "median_absolute_error": 0.07159999999999744
+            },
+            "validation": {
+              "mae": 0.31161205145565335,
+              "rmse": 0.5137747624331137,
+              "r2": 0.9656038492850638,
+              "median_absolute_error": 0.17520000000000113
+            }
+          },
+          "train_seconds": 2.422
+        },
+        {
+          "candidate": "gradient_boosting",
+          "status": "RUN",
+          "isolated_fit": true,
+          "metrics": {
+            "train": {
+              "mae": 0.3752344674063874,
+              "rmse": 0.5358472650502728,
+              "r2": 0.9639110071934339,
+              "median_absolute_error": 0.2705438337005681
+            },
+            "validation": {
+              "mae": 0.3917075423488175,
+              "rmse": 0.5769797296493829,
+              "r2": 0.9566204122193036,
+              "median_absolute_error": 0.27090847476494995
+            }
+          },
+          "train_seconds": 4.842
+        },
+        {
+          "candidate": "hist_gradient_boosting",
+          "status": "RUN",
+          "isolated_fit": false,
+          "metrics": {
+            "train": {
+              "mae": 0.25961200380729355,
+              "rmse": 0.391974264816227,
+              "r2": 0.9806888635168134,
+              "median_absolute_error": 0.16668737999356287
+            },
+            "validation": {
+              "mae": 0.2939784991951627,
+              "rmse": 0.4784605256240834,
+              "r2": 0.9701697745881842,
+              "median_absolute_error": 0.17105416021851205
+            }
+          },
+          "train_seconds": 0.818
+        }
+      ],
+      "selected": {
+        "candidate": "hist_gradient_boosting",
+        "status": "RUN",
+        "isolated_fit": false,
+        "metrics": {
+          "train": {
+            "mae": 0.25961200380729355,
+            "rmse": 0.391974264816227,
+            "r2": 0.9806888635168134,
+            "median_absolute_error": 0.16668737999356287
+          },
+          "validation": {
+            "mae": 0.2939784991951627,
+            "rmse": 0.4784605256240834,
+            "r2": 0.9701697745881842,
+            "median_absolute_error": 0.17105416021851205
+          }
+        },
+        "train_seconds": 0.818
+      },
+      "selection_outcome": "SELECTED",
+      "selection_details": {
+        "criteria": {
+          "min_relative_mae_improvement_vs_dummy": 0.02,
+          "weak_r2_threshold": 0.0,
+          "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+        },
+        "selected_candidate": "hist_gradient_boosting",
+        "validation_mae": 0.2939784991951627,
+        "validation_r2": 0.9701697745881842,
+        "dummy_validation_mae": 2.0308762647734344,
+        "relative_mae_improvement_vs_dummy": 0.8552454896960653,
+        "reason": "meets validation improvement and R\u00b2 criteria"
+      },
+      "synthetic_data_evaluation": true,
+      "test_path_reserved": "data\\financial_models\\synthetic_v1\\test.csv"
+    },
+    "finalize": {
+      "task": "labour_hours",
+      "selection_outcome": "SELECTED",
+      "registered": true,
+      "validation_predict_seconds": 0.0204,
+      "metrics": {
+        "train": {
+          "mae": 0.25961200380729355,
+          "rmse": 0.391974264816227,
+          "r2": 0.9806888635168134,
+          "median_absolute_error": 0.16668737999356287
+        },
+        "validation": {
+          "mae": 0.2939784991951627,
+          "rmse": 0.4784605256240834,
+          "r2": 0.9701697745881842,
+          "median_absolute_error": 0.17105416021851205
+        },
+        "test": {
+          "mae": 0.28841584607900583,
+          "rmse": 0.44022513624168236,
+          "r2": 0.9741338937340477,
+          "median_absolute_error": 0.1773425647693705
+        },
+        "selection_outcome": "SELECTED",
+        "selection_details": {
+          "criteria": {
+            "min_relative_mae_improvement_vs_dummy": 0.02,
+            "weak_r2_threshold": 0.0,
+            "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+          },
+          "selected_candidate": "hist_gradient_boosting",
+          "validation_mae": 0.2939784991951627,
+          "validation_r2": 0.9701697745881842,
+          "dummy_validation_mae": 2.0308762647734344,
+          "relative_mae_improvement_vs_dummy": 0.8552454896960653,
+          "reason": "meets validation improvement and R\u00b2 criteria"
+        }
+      },
+      "registration": {
+        "task": "labour_hours",
+        "version": "20261112054017",
+        "registry_dir": "data\\financial_models\\synthetic_v1\\experimental_artifacts",
+        "status": "trained",
+        "lifecycle": "experimental",
+        "synthetic_data": true,
+        "production_ready": false,
+        "algorithm": "hist_gradient_boosting"
+      },
+      "manifest": "data\\financial_models\\synthetic_v1\\experimental_artifacts\\labour_hours\\20261112054017\\manifest.json",
+      "status": "ok",
+      "algorithm": "hist_gradient_boosting"
+    }
+  },
+  "subgroup_parts": [
+    {
+      "dimension": "repair_category",
+      "group": "BATTERY",
+      "n": 113,
+      "status": "OK",
+      "mae": 41.60294001445739,
+      "rmse": 64.5752237215368,
+      "r2": 0.9607932762165078,
+      "median_absolute_error": 26.731426449986145
+    },
+    {
+      "dimension": "repair_category",
+      "group": "BODY",
+      "n": 92,
+      "status": "OK",
+      "mae": 52.01802065178138,
+      "rmse": 77.60689417256529,
+      "r2": 0.9203223354057077,
+      "median_absolute_error": 34.54342201443343
+    },
+    {
+      "dimension": "repair_category",
+      "group": "BRAKES",
+      "n": 205,
+      "status": "OK",
+      "mae": 19.408171257031857,
+      "rmse": 24.75187835733707,
+      "r2": 0.696837636522,
+      "median_absolute_error": 16.644367075862277
+    },
+    {
+      "dimension": "repair_category",
+      "group": "COOLING",
+      "n": 123,
+      "status": "OK",
+      "mae": 39.515354593083416,
+      "rmse": 61.29705502400459,
+      "r2": 0.9659855389380698,
+      "median_absolute_error": 18.564316114752238
+    },
+    {
+      "dimension": "repair_category",
+      "group": "ELECTRICAL",
+      "n": 142,
+      "status": "OK",
+      "mae": 41.779961307049696,
+      "rmse": 54.575533456439075,
+      "r2": 0.8984463724401645,
+      "median_absolute_error": 30.53032396887896
+    },
+    {
+      "dimension": "repair_category",
+      "group": "ENGINE",
+      "n": 150,
+      "status": "OK",
+      "mae": 132.23065824908073,
+      "rmse": 238.73360759084352,
+      "r2": 0.9387740127743756,
+      "median_absolute_error": 60.34101492065423
+    },
+    {
+      "dimension": "repair_category",
+      "group": "EXHAUST",
+      "n": 116,
+      "status": "OK",
+      "mae": 89.10820161877486,
+      "rmse": 151.77451508295988,
+      "r2": 0.94171235071946,
+      "median_absolute_error": 36.30210660611766
+    },
+    {
+      "dimension": "repair_category",
+      "group": "FUEL",
+      "n": 99,
+      "status": "OK",
+      "mae": 46.91673196039304,
+      "rmse": 66.80214742318158,
+      "r2": 0.9529332241914471,
+      "median_absolute_error": 27.96993335840466
+    },
+    {
+      "dimension": "repair_category",
+      "group": "HVAC",
+      "n": 96,
+      "status": "OK",
+      "mae": 91.87543942446206,
+      "rmse": 121.89186379194327,
+      "r2": 0.8789459308466421,
+      "median_absolute_error": 69.16197394171394
+    },
+    {
+      "dimension": "repair_category",
+      "group": "STEERING",
+      "n": 99,
+      "status": "OK",
+      "mae": 54.07584594595808,
+      "rmse": 107.76990982345933,
+      "r2": 0.9773867742796383,
+      "median_absolute_error": 13.266164128829388
+    },
+    {
+      "dimension": "repair_category",
+      "group": "SUSPENSION",
+      "n": 134,
+      "status": "OK",
+      "mae": 31.975032996540328,
+      "rmse": 43.89413022792462,
+      "r2": 0.9200508944593039,
+      "median_absolute_error": 21.05440751849872
+    },
+    {
+      "dimension": "repair_category",
+      "group": "TRANSMISSION",
+      "n": 119,
+      "status": "OK",
+      "mae": 90.45541816144497,
+      "rmse": 165.90756011255175,
+      "r2": 0.9618821341588896,
+      "median_absolute_error": 31.515254731882123
+    },
+    {
+      "dimension": "component",
+      "group": "Battery system",
+      "n": 89,
+      "status": "OK",
+      "mae": 29.181383974260367,
+      "rmse": 38.192846008400444,
+      "r2": 0.6055008823022271,
+      "median_absolute_error": 24.082365403905555
+    },
+    {
+      "dimension": "component",
+      "group": "Body exterior",
+      "n": 92,
+      "status": "OK",
+      "mae": 52.01802065178138,
+      "rmse": 77.60689417256529,
+      "r2": 0.9203223354057077,
+      "median_absolute_error": 34.54342201443343
+    },
+    {
+      "dimension": "component",
+      "group": "Brake system",
+      "n": 205,
+      "status": "OK",
+      "mae": 19.408171257031857,
+      "rmse": 24.75187835733707,
+      "r2": 0.696837636522,
+      "median_absolute_error": 16.644367075862277
+    },
+    {
+      "dimension": "component",
+      "group": "Charging system",
+      "n": 97,
+      "status": "OK",
+      "mae": 60.351833711295036,
+      "rmse": 81.80829695808896,
+      "r2": 0.8921880654078168,
+      "median_absolute_error": 50.57571403409884
+    },
+    {
+      "dimension": "component",
+      "group": "Climate control",
+      "n": 56,
+      "status": "OK",
+      "mae": 120.9240593707268,
+      "rmse": 148.56949276254645,
+      "r2": 0.6888506211097936,
+      "median_absolute_error": 106.75078641532576
+    },
+    {
+      "dimension": "component",
+      "group": "Cooling system",
+      "n": 123,
+      "status": "OK",
+      "mae": 39.515354593083416,
+      "rmse": 61.29705502400459,
+      "r2": 0.9659855389380698,
+      "median_absolute_error": 18.564316114752238
+    },
+    {
+      "dimension": "component",
+      "group": "Engine assembly",
+      "n": 86,
+      "status": "OK",
+      "mae": 191.8805021692698,
+      "rmse": 309.3775244817552,
+      "r2": 0.9016034736173438,
+      "median_absolute_error": 113.38694286915648
+    },
+    {
+      "dimension": "component",
+      "group": "Engine cooling",
+      "n": 64,
+      "status": "OK",
+      "mae": 52.07618048132674,
+      "rmse": 70.44694154971245,
+      "r2": 0.5643029676756137,
+      "median_absolute_error": 43.450623053835926
+    },
+    {
+      "dimension": "component",
+      "group": "Exhaust system",
+      "n": 116,
+      "status": "OK",
+      "mae": 89.10820161877486,
+      "rmse": 151.77451508295988,
+      "r2": 0.94171235071946,
+      "median_absolute_error": 36.30210660611766
+    },
+    {
+      "dimension": "component",
+      "group": "Fuel delivery",
+      "n": 51,
+      "status": "OK",
+      "mae": 76.05336443386794,
+      "rmse": 90.9253849225945,
+      "r2": 0.7122999750735546,
+      "median_absolute_error": 68.15696262625875
+    },
+    {
+      "dimension": "component",
+      "group": "Fuel system",
+      "n": 48,
+      "status": "OK",
+      "mae": 15.959059957325954,
+      "rmse": 20.489558491806363,
+      "r2": 0.529322898988657,
+      "median_absolute_error": 11.829181526134775
+    },
+    {
+      "dimension": "component",
+      "group": "HVAC system",
+      "n": 40,
+      "status": "OK",
+      "mae": 51.207371499691405,
+      "rmse": 68.96558307741826,
+      "r2": 0.553009355472065,
+      "median_absolute_error": 37.65993313441618
+    },
+    {
+      "dimension": "component",
+      "group": "Starting system",
+      "n": 69,
+      "status": "OK",
+      "mae": 31.632111355506527,
+      "rmse": 40.850588409529806,
+      "r2": 0.5487285306608134,
+      "median_absolute_error": 26.00784951281642
+    },
+    {
+      "dimension": "component",
+      "group": "Steering system",
+      "n": 99,
+      "status": "OK",
+      "mae": 54.07584594595808,
+      "rmse": 107.76990982345933,
+      "r2": 0.9773867742796383,
+      "median_absolute_error": 13.266164128829388
+    },
+    {
+      "dimension": "component",
+      "group": "Suspension system",
+      "n": 134,
+      "status": "OK",
+      "mae": 31.975032996540328,
+      "rmse": 43.89413022792462,
+      "r2": 0.9200508944593039,
+      "median_absolute_error": 21.05440751849872
+    },
+    {
+      "dimension": "component",
+      "group": "Transmission system",
+      "n": 119,
+      "status": "OK",
+      "mae": 90.45541816144497,
+      "rmse": 165.90756011255175,
+      "r2": 0.9618821341588896,
+      "median_absolute_error": 31.515254731882123
+    },
+    {
+      "dimension": "repair_action",
+      "group": "Repair",
+      "n": 614,
+      "status": "OK",
+      "mae": 23.54660110321144,
+      "rmse": 34.558679008177535,
+      "r2": 0.936052913790137,
+      "median_absolute_error": 16.212273410475348
+    },
+    {
+      "dimension": "repair_action",
+      "group": "Replacement",
+      "n": 874,
+      "status": "OK",
+      "mae": 84.48432720575866,
+      "rmse": 147.73463833897156,
+      "r2": 0.9485074779163384,
+      "median_absolute_error": 44.46853481573277
+    },
+    {
+      "dimension": "vehicle_age_group",
+      "group": "(0, 3]",
+      "n": 722,
+      "status": "OK",
+      "mae": 59.66844069601719,
+      "rmse": 123.0400053805465,
+      "r2": 0.9561625923969745,
+      "median_absolute_error": 26.25365577631237
+    },
+    {
+      "dimension": "vehicle_age_group",
+      "group": "(3, 7]",
+      "n": 513,
+      "status": "OK",
+      "mae": 61.03898680003869,
+      "rmse": 114.39000575594672,
+      "r2": 0.9623115399648631,
+      "median_absolute_error": 28.261384054090627
+    },
+    {
+      "dimension": "vehicle_age_group",
+      "group": "(7, 12]",
+      "n": 253,
+      "status": "OK",
+      "mae": 54.953757487196135,
+      "rmse": 92.52543237892058,
+      "r2": 0.9684447107818218,
+      "median_absolute_error": 30.27351874897306
+    }
+  ],
+  "subgroup_labour": [
+    {
+      "dimension": "repair_category",
+      "group": "BATTERY",
+      "n": 113,
+      "status": "OK",
+      "mae": 0.14224511453205646,
+      "rmse": 0.25747777240408193,
+      "r2": 0.9752402016029843,
+      "median_absolute_error": 0.07143447735156905
+    },
+    {
+      "dimension": "repair_category",
+      "group": "BODY",
+      "n": 92,
+      "status": "OK",
+      "mae": 0.3594055039823793,
+      "rmse": 0.467407076101578,
+      "r2": 0.7986531657076616,
+      "median_absolute_error": 0.2605426893439202
+    },
+    {
+      "dimension": "repair_category",
+      "group": "BRAKES",
+      "n": 205,
+      "status": "OK",
+      "mae": 0.13002454563815288,
+      "rmse": 0.17790951008717817,
+      "r2": 0.8954679008871749,
+      "median_absolute_error": 0.09312550745963177
+    },
+    {
+      "dimension": "repair_category",
+      "group": "COOLING",
+      "n": 123,
+      "status": "OK",
+      "mae": 0.21165057513767202,
+      "rmse": 0.29250060798273925,
+      "r2": 0.9304769193969089,
+      "median_absolute_error": 0.15678079672279033
+    },
+    {
+      "dimension": "repair_category",
+      "group": "ELECTRICAL",
+      "n": 142,
+      "status": "OK",
+      "mae": 0.2143757810784808,
+      "rmse": 0.2785304197387023,
+      "r2": 0.7932370694854147,
+      "median_absolute_error": 0.1611707732242853
+    },
+    {
+      "dimension": "repair_category",
+      "group": "ENGINE",
+      "n": 150,
+      "status": "OK",
+      "mae": 0.5263717401827537,
+      "rmse": 0.7237340897541898,
+      "r2": 0.9587514508621788,
+      "median_absolute_error": 0.3556234227941881
+    },
+    {
+      "dimension": "repair_category",
+      "group": "EXHAUST",
+      "n": 116,
+      "status": "OK",
+      "mae": 0.23329290270129466,
+      "rmse": 0.31941400362187705,
+      "r2": 0.9286994332159099,
+      "median_absolute_error": 0.15478964931438288
+    },
+    {
+      "dimension": "repair_category",
+      "group": "FUEL",
+      "n": 99,
+      "status": "OK",
+      "mae": 0.2857224041118288,
+      "rmse": 0.39416472437579864,
+      "r2": 0.9167202399040847,
+      "median_absolute_error": 0.2006976012683399
+    },
+    {
+      "dimension": "repair_category",
+      "group": "HVAC",
+      "n": 96,
+      "status": "OK",
+      "mae": 0.48865420426825973,
+      "rmse": 0.6504820023701184,
+      "r2": 0.8070110093589468,
+      "median_absolute_error": 0.365836714928534
+    },
+    {
+      "dimension": "repair_category",
+      "group": "STEERING",
+      "n": 99,
+      "status": "OK",
+      "mae": 0.3187829656571337,
+      "rmse": 0.5107961819092899,
+      "r2": 0.9727296602356444,
+      "median_absolute_error": 0.19746257910476483
+    },
+    {
+      "dimension": "repair_category",
+      "group": "SUSPENSION",
+      "n": 134,
+      "status": "OK",
+      "mae": 0.24483385064905658,
+      "rmse": 0.3025106907282286,
+      "r2": 0.8082240638451138,
+      "median_absolute_error": 0.21794688300662013
+    },
+    {
+      "dimension": "repair_category",
+      "group": "TRANSMISSION",
+      "n": 119,
+      "status": "OK",
+      "mae": 0.43119371597935385,
+      "rmse": 0.6367908482968504,
+      "r2": 0.9776065339834253,
+      "median_absolute_error": 0.27298585382576324
+    },
+    {
+      "dimension": "component",
+      "group": "Battery system",
+      "n": 89,
+      "status": "OK",
+      "mae": 0.06008771947774396,
+      "rmse": 0.07171801540377913,
+      "r2": 0.6666465758224263,
+      "median_absolute_error": 0.05638726063133104
+    },
+    {
+      "dimension": "component",
+      "group": "Body exterior",
+      "n": 92,
+      "status": "OK",
+      "mae": 0.3594055039823793,
+      "rmse": 0.467407076101578,
+      "r2": 0.7986531657076616,
+      "median_absolute_error": 0.2605426893439202
+    },
+    {
+      "dimension": "component",
+      "group": "Brake system",
+      "n": 205,
+      "status": "OK",
+      "mae": 0.13002454563815288,
+      "rmse": 0.17790951008717817,
+      "r2": 0.8954679008871749,
+      "median_absolute_error": 0.09312550745963177
+    },
+    {
+      "dimension": "component",
+      "group": "Charging system",
+      "n": 97,
+      "status": "OK",
+      "mae": 0.281184045426841,
+      "rmse": 0.36446714370449174,
+      "r2": 0.8698301941470237,
+      "median_absolute_error": 0.23163244863370513
+    },
+    {
+      "dimension": "component",
+      "group": "Climate control",
+      "n": 56,
+      "status": "OK",
+      "mae": 0.47742691097321366,
+      "rmse": 0.6481882043364563,
+      "r2": 0.7034979197156561,
+      "median_absolute_error": 0.34786204513321817
+    },
+    {
+      "dimension": "component",
+      "group": "Cooling system",
+      "n": 123,
+      "status": "OK",
+      "mae": 0.21165057513767202,
+      "rmse": 0.29250060798273925,
+      "r2": 0.9304769193969089,
+      "median_absolute_error": 0.15678079672279033
+    },
+    {
+      "dimension": "component",
+      "group": "Engine assembly",
+      "n": 86,
+      "status": "OK",
+      "mae": 0.7162772774267214,
+      "rmse": 0.909521214385527,
+      "r2": 0.8240816768591739,
+      "median_absolute_error": 0.6347697565254542
+    },
+    {
+      "dimension": "component",
+      "group": "Engine cooling",
+      "n": 64,
+      "status": "OK",
+      "mae": 0.2711861745111719,
+      "rmse": 0.34065595526679754,
+      "r2": 0.760937961638041,
+      "median_absolute_error": 0.22613716656162453
+    },
+    {
+      "dimension": "component",
+      "group": "Exhaust system",
+      "n": 116,
+      "status": "OK",
+      "mae": 0.23329290270129466,
+      "rmse": 0.31941400362187705,
+      "r2": 0.9286994332159099,
+      "median_absolute_error": 0.15478964931438288
+    },
+    {
+      "dimension": "component",
+      "group": "Fuel delivery",
+      "n": 51,
+      "status": "OK",
+      "mae": 0.378076297115968,
+      "rmse": 0.4894767413357519,
+      "r2": 0.6918255690486492,
+      "median_absolute_error": 0.3250884436295194
+    },
+    {
+      "dimension": "component",
+      "group": "Fuel system",
+      "n": 48,
+      "status": "OK",
+      "mae": 0.1875963927949309,
+      "rmse": 0.2566716315215435,
+      "r2": 0.7333128492699656,
+      "median_absolute_error": 0.1549283060190385
+    },
+    {
+      "dimension": "component",
+      "group": "HVAC system",
+      "n": 40,
+      "status": "OK",
+      "mae": 0.5043724148813242,
+      "rmse": 0.6536797973324291,
+      "r2": 0.7729159248787937,
+      "median_absolute_error": 0.41709037494346957
+    },
+    {
+      "dimension": "component",
+      "group": "Starting system",
+      "n": 69,
+      "status": "OK",
+      "mae": 0.20133912196150525,
+      "rmse": 0.2735877643497508,
+      "r2": 0.7842978853486611,
+      "median_absolute_error": 0.13856085677816132
+    },
+    {
+      "dimension": "component",
+      "group": "Steering system",
+      "n": 99,
+      "status": "OK",
+      "mae": 0.3187829656571337,
+      "rmse": 0.5107961819092899,
+      "r2": 0.9727296602356444,
+      "median_absolute_error": 0.19746257910476483
+    },
+    {
+      "dimension": "component",
+      "group": "Suspension system",
+      "n": 134,
+      "status": "OK",
+      "mae": 0.24483385064905658,
+      "rmse": 0.3025106907282286,
+      "r2": 0.8082240638451138,
+      "median_absolute_error": 0.21794688300662013
+    },
+    {
+      "dimension": "component",
+      "group": "Transmission system",
+      "n": 119,
+      "status": "OK",
+      "mae": 0.43119371597935385,
+      "rmse": 0.6367908482968504,
+      "r2": 0.9776065339834253,
+      "median_absolute_error": 0.27298585382576324
+    },
+    {
+      "dimension": "repair_action",
+      "group": "Repair",
+      "n": 614,
+      "status": "OK",
+      "mae": 0.24079207134353253,
+      "rmse": 0.34614841257354606,
+      "r2": 0.9759282827137306,
+      "median_absolute_error": 0.16133615252719724
+    },
+    {
+      "dimension": "repair_action",
+      "group": "Replacement",
+      "n": 874,
+      "status": "OK",
+      "mae": 0.32187236517234746,
+      "rmse": 0.49575195592459,
+      "r2": 0.9723673719343665,
+      "median_absolute_error": 0.19530126311856066
+    },
+    {
+      "dimension": "vehicle_age_group",
+      "group": "(0, 3]",
+      "n": 722,
+      "status": "OK",
+      "mae": 0.28516124461868286,
+      "rmse": 0.44029107608072854,
+      "r2": 0.9752489074447391,
+      "median_absolute_error": 0.17086669943848598
+    },
+    {
+      "dimension": "vehicle_age_group",
+      "group": "(3, 7]",
+      "n": 513,
+      "status": "OK",
+      "mae": 0.299898970261814,
+      "rmse": 0.45245344004291277,
+      "r2": 0.9746518545905029,
+      "median_absolute_error": 0.193823778910291
+    },
+    {
+      "dimension": "vehicle_age_group",
+      "group": "(7, 12]",
+      "n": 253,
+      "status": "OK",
+      "mae": 0.2744197178124942,
+      "rmse": 0.41412385416859293,
+      "r2": 0.9673004424451078,
+      "median_absolute_error": 0.17081602167015797
+    }
+  ]
+}

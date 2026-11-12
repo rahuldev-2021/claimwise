@@ -1,0 +1,35 @@
+# PROVISIONAL — split strategy finalized after approved dataset inspection
+provisional: true
+version: "0.0-provisional"
+
+random_seed: 42
+
+evaluation:
+  strategy: auto
+  group_columns: [vehicle_make, vehicle_model]
+  time_column: price_year
+  n_splits: 5
+  justification_pending: true
+
+model_candidates:
+  parts_cost:
+    - dummy_mean
+    - linear_regression
+    - ridge
+    - random_forest
+    - gradient_boosting
+    - hist_gradient_boosting
+    - xgboost
+  labour_hours:
+    - dummy_mean
+    - linear_regression
+    - ridge
+    - random_forest
+    - gradient_boosting
+    - hist_gradient_boosting
+    - xgboost
+
+registry:
+  trusted_root_only: true
+  record_sklearn_version: true
+  bundle_preprocessor_with_model: true

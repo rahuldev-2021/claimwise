@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-base: 255 255 255;
+    --color-base-deep: 244 244 244;
+    --color-sidebar: 249 249 249;
+    --color-surface: 255 255 255;
+    --color-surface-raised: 247 247 248;
+    --color-surface-hover: 236 236 236;
+    --color-user-bubble: 244 244 244;
+    --color-text: 13 13 13;
+    --color-text-muted: 103 103 103;
+    --color-text-faint: 142 142 142;
+    --color-accent: 13 13 13;
+    --color-accent-hover: 66 66 66;
+    --color-accent-fg: 255 255 255;
+    --color-accent-muted: 236 236 236;
+    --color-primary: 37 99 235;
+    --color-primary-hover: 29 78 216;
+    --color-primary-fg: 255 255 255;
+    --color-brand: 16 185 129;
+    --color-brand-hover: 5 150 105;
+    --color-brand-fg: 255 255 255;
+    --color-status-ok: 16 163 127;
+    --color-status-warn: 234 168 0;
+    --color-status-err: 239 68 68;
+    --border: rgba(0, 0, 0, 0.1);
+    --border-strong: rgba(0, 0, 0, 0.16);
+    --shadow-composer: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+    --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  }
+
+  .dark {
+    --color-base: 13 13 15;
+    --color-base-deep: 10 10 12;
+    --color-sidebar: 10 10 12;
+    --color-surface: 18 18 22;
+    --color-surface-raised: 26 26 32;
+    --color-surface-hover: 38 38 46;
+    --color-user-bubble: 47 47 47;
+    --color-text: 236 236 236;
+    --color-text-muted: 180 180 180;
+    --color-text-faint: 142 142 142;
+    --color-accent: 255 255 255;
+    --color-accent-hover: 236 236 236;
+    --color-accent-fg: 13 13 13;
+    --color-accent-muted: 47 47 47;
+    --color-primary: 59 130 246;
+    --color-primary-hover: 37 99 235;
+    --color-primary-fg: 255 255 255;
+    --color-brand: 16 185 129;
+    --color-brand-hover: 5 150 105;
+    --color-brand-fg: 255 255 255;
+    --border: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --shadow-composer: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.35);
+    --shadow-glow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply min-h-screen bg-base font-sans text-[15px] text-text;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background: rgb(var(--color-accent) / 0.15);
+  }
+}
+
+@layer components {
+  .markdown-body {
+    @apply text-[15px] leading-relaxed text-text;
+  }
+
+  .ui-label {
+    @apply text-[10px] font-semibold uppercase tracking-wider text-text-faint;
+  }
+
+  .ui-input {
+    @apply rounded-md border border-border bg-surface px-3 py-2 text-[13px] text-text transition placeholder:text-text-faint focus:border-border-strong focus:outline-none focus:ring-2 focus:ring-accent/15;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.35s ease-out;
+  }
+
+  .dark .dealer-glass {
+    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    backdrop-filter: blur(12px);
+  }
+
+  .dealer-cta-glow {
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.06),
+      0 -1px 24px rgb(59 130 246 / 0.35);
+  }
+
+  .dealer-card-glow {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgb(59 130 246 / 0.12), transparent 70%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-up {
+    animation: none;
+  }
+}

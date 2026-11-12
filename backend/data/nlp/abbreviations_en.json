@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "replacements": [
+    {"pattern": "\\beng\\b", "replacement": "engine", "ignore_case": true},
+    {"pattern": "\\btrans\\b", "replacement": "transmission", "ignore_case": true},
+    {"pattern": "\\brepl\\.?\\b", "replacement": "replace", "ignore_case": true},
+    {"pattern": "\\brh\\b", "replacement": "right hand", "ignore_case": true},
+    {"pattern": "\\blh\\b", "replacement": "left hand", "ignore_case": true},
+    {"pattern": "\\bdtc\\s+", "replacement": "diagnostic trouble code ", "ignore_case": true}
+  ]
+}

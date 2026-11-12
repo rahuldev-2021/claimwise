@@ -1,0 +1,46 @@
+{
+  "task": "labour_hours",
+  "algorithm": "hist_gradient_boosting",
+  "version": "20261112054017",
+  "selection_outcome": "SELECTED",
+  "dataset_paths": [
+    "data\\financial_models\\synthetic_v1\\train.csv",
+    "data\\financial_models\\synthetic_v1\\validation.csv",
+    "data\\financial_models\\synthetic_v1\\test.csv"
+  ],
+  "metrics": {
+    "train": {
+      "mae": 0.25961200380729355,
+      "rmse": 0.391974264816227,
+      "r2": 0.9806888635168134,
+      "median_absolute_error": 0.16668737999356287
+    },
+    "validation": {
+      "mae": 0.2939784991951627,
+      "rmse": 0.4784605256240834,
+      "r2": 0.9701697745881842,
+      "median_absolute_error": 0.17105416021851205
+    },
+    "test": {
+      "mae": 0.28841584607900583,
+      "rmse": 0.44022513624168236,
+      "r2": 0.9741338937340477,
+      "median_absolute_error": 0.1773425647693705
+    },
+    "selection_outcome": "SELECTED",
+    "selection_details": {
+      "criteria": {
+        "min_relative_mae_improvement_vs_dummy": 0.02,
+        "weak_r2_threshold": 0.0,
+        "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+      },
+      "selected_candidate": "hist_gradient_boosting",
+      "validation_mae": 0.2939784991951627,
+      "validation_r2": 0.9701697745881842,
+      "dummy_validation_mae": 2.0308762647734344,
+      "relative_mae_improvement_vs_dummy": 0.8552454896960653,
+      "reason": "meets validation improvement and R\u00b2 criteria"
+    }
+  },
+  "sklearn_version": "1.9.1"
+}

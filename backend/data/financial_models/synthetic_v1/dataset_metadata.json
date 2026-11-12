@@ -1,0 +1,19 @@
+{
+  "dataset_version": "synthetic_v1.1",
+  "generation_script_version": "1.1.0",
+  "random_seed": 42,
+  "currency": "USD",
+  "synthetic_declaration": "All records are simulated. Not OEM pricing or real warranty history.",
+  "total_records": 10000,
+  "split_counts": {
+    "train": 7035,
+    "validation": 1477,
+    "test": 1488
+  },
+  "split_strategy": "Group by vehicle_id 70/15/15 \u2014 prevents same-vehicle leakage across splits",
+  "unique_vehicles": 2714,
+  "date_range": {
+    "min": "2018-01-01",
+    "max": "2024-12-31"
+  }
+}

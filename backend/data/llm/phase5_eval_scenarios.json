@@ -1,0 +1,14 @@
+[
+  {
+    "id": "strong_support",
+    "claim_id": "CLM-002",
+    "label": "supported_brake_pads",
+    "expected_workflow": "PROCEED_TO_HUMAN_REVIEW"
+  },
+  {
+    "id": "missing_evidence",
+    "claim_id": "CLM-001",
+    "label": "insufficient_evidence",
+    "expected_workflow": "REQUEST_ADDITIONAL_EVIDENCE"
+  }
+]

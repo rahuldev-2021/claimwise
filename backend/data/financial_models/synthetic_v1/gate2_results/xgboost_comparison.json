@@ -1,0 +1,124 @@
+{
+  "parts_cost": {
+    "task": "parts_cost",
+    "evaluation_strategy": "group_kfold",
+    "evaluation_note": "group_kfold on ['vehicle_make', 'vehicle_model'] (provisional until approved dataset EDA confirms)",
+    "candidates": [
+      {
+        "candidate": "xgboost",
+        "status": "RUN",
+        "isolated_fit": false,
+        "metrics": {
+          "train": {
+            "mae": 31.426841862649383,
+            "rmse": 47.52276464105809,
+            "r2": 0.9931066457451319,
+            "median_absolute_error": 19.394682617187527
+          },
+          "validation": {
+            "mae": 65.26372360206248,
+            "rmse": 118.19686484551819,
+            "r2": 0.9528746226810442,
+            "median_absolute_error": 30.95393188476561
+          }
+        },
+        "train_seconds": 1.427
+      }
+    ],
+    "selected": {
+      "candidate": "xgboost",
+      "status": "RUN",
+      "isolated_fit": false,
+      "metrics": {
+        "train": {
+          "mae": 31.426841862649383,
+          "rmse": 47.52276464105809,
+          "r2": 0.9931066457451319,
+          "median_absolute_error": 19.394682617187527
+        },
+        "validation": {
+          "mae": 65.26372360206248,
+          "rmse": 118.19686484551819,
+          "r2": 0.9528746226810442,
+          "median_absolute_error": 30.95393188476561
+        }
+      },
+      "train_seconds": 1.427
+    },
+    "selection_outcome": "SELECTED",
+    "selection_details": {
+      "criteria": {
+        "min_relative_mae_improvement_vs_dummy": 0.02,
+        "weak_r2_threshold": 0.0,
+        "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+      },
+      "selected_candidate": "xgboost",
+      "validation_mae": 65.26372360206248,
+      "validation_r2": 0.9528746226810442,
+      "reason": "meets validation improvement and R\u00b2 criteria"
+    },
+    "synthetic_data_evaluation": true,
+    "test_path_reserved": "data\\financial_models\\synthetic_v1\\test.csv"
+  },
+  "labour_hours": {
+    "task": "labour_hours",
+    "evaluation_strategy": "group_kfold",
+    "evaluation_note": "group_kfold on ['vehicle_make', 'vehicle_model'] (provisional until approved dataset EDA confirms)",
+    "candidates": [
+      {
+        "candidate": "xgboost",
+        "status": "RUN",
+        "isolated_fit": false,
+        "metrics": {
+          "train": {
+            "mae": 0.1765145379717501,
+            "rmse": 0.2518647950883139,
+            "r2": 0.992026891767994,
+            "median_absolute_error": 0.12189456462860115
+          },
+          "validation": {
+            "mae": 0.31602356723618813,
+            "rmse": 0.5134017821859752,
+            "r2": 0.9656537716597182,
+            "median_absolute_error": 0.1839428138732906
+          }
+        },
+        "train_seconds": 0.854
+      }
+    ],
+    "selected": {
+      "candidate": "xgboost",
+      "status": "RUN",
+      "isolated_fit": false,
+      "metrics": {
+        "train": {
+          "mae": 0.1765145379717501,
+          "rmse": 0.2518647950883139,
+          "r2": 0.992026891767994,
+          "median_absolute_error": 0.12189456462860115
+        },
+        "validation": {
+          "mae": 0.31602356723618813,
+          "rmse": 0.5134017821859752,
+          "r2": 0.9656537716597182,
+          "median_absolute_error": 0.1839428138732906
+        }
+      },
+      "train_seconds": 0.854
+    },
+    "selection_outcome": "SELECTED",
+    "selection_details": {
+      "criteria": {
+        "min_relative_mae_improvement_vs_dummy": 0.02,
+        "weak_r2_threshold": 0.0,
+        "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+      },
+      "selected_candidate": "xgboost",
+      "validation_mae": 0.31602356723618813,
+      "validation_r2": 0.9656537716597182,
+      "reason": "meets validation improvement and R\u00b2 criteria"
+    },
+    "synthetic_data_evaluation": true,
+    "test_path_reserved": "data\\financial_models\\synthetic_v1\\test.csv"
+  }
+}

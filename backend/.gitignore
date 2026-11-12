@@ -1,0 +1,25 @@
+.env
+.env.local
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Regenerated / machine-local (see root .gitignore too)
+data/uploads/
+data/rag/chroma/
+data/reviewer_feedback.json
+data/reports/

@@ -1,0 +1,78 @@
+# PROVISIONAL — replace when approved data dictionary is delivered
+provisional: true
+version: "0.0-provisional"
+description: Template schema for financial training data ingestion (not the production dataset)
+
+targets:
+  parts_cost:
+    column: parts_cost
+    currency_column: currency
+    independent: true
+  labour_hours:
+    column: labour_hours
+    independent: true
+
+currency:
+  allowed_codes: [USD, CAD]
+  require_single_currency_for_parts_training: true
+  normalization_strategy: null
+
+optional_columns:
+  price_date:
+    column: price_date
+    dtype: date
+  region:
+    column: region
+    dtype: string
+
+leakage_forbidden_columns:
+  - submitted_parts_cost
+  - submitted_labour_hours
+  - claim_id
+
+fields:
+  - name: vehicle_make
+    dtype: string
+    required: true
+  - name: vehicle_model
+    dtype: string
+    required: true
+  - name: model_year
+    dtype: integer
+    required: true
+  - name: vehicle_age_years
+    dtype: integer
+    required: false
+  - name: mileage
+    dtype: integer
+    required: false
+  - name: engine_type
+    dtype: string
+    required: false
+  - name: repair_category
+    dtype: string
+    required: true
+  - name: vehicle_category
+    dtype: string
+    required: false
+  - name: part
+    dtype: string
+    required: false
+  - name: repair_action
+    dtype: string
+    required: false
+  - name: repair_complexity
+    dtype: string
+    required: false
+  - name: part_number
+    dtype: string
+    required: false
+  - name: currency
+    dtype: string
+    required: true
+  - name: parts_cost
+    dtype: decimal
+    required: true
+  - name: labour_hours
+    dtype: decimal
+    required: true

@@ -1,0 +1,99 @@
+# PROVISIONAL — aligned with synthetic_v1 repair-cost features (part_number excluded from ML).
+# component (CSV) is intentionally excluded: claim Repair schema has no component field at submission.
+provisional: true
+version: "0.1-synthetic_v1"
+
+feature_ids:
+  - vehicle_make
+  - vehicle_model
+  - model_year
+  - vehicle_age
+  - mileage
+  - engine_type
+  - vehicle_category
+  - repair_category
+  - part_description
+  - repair_action
+  - repair_complexity
+  - currency
+  - region
+  - price_year
+
+training:
+  columns:
+    vehicle_make: vehicle_make
+    vehicle_model: vehicle_model
+    model_year: model_year
+    vehicle_age: vehicle_age_years
+    mileage: mileage
+    engine_type: engine_type
+    vehicle_category: vehicle_category
+    repair_category: repair_category
+    part_description: part
+    repair_action: repair_action
+    repair_complexity: repair_complexity
+    currency: currency
+    price_year: price_date
+
+inference:
+  sources:
+    vehicle_make:
+      claim_path: vehicle.make
+      required_at_inference: true
+    vehicle_model:
+      claim_path: vehicle.model
+      required_at_inference: true
+    model_year:
+      claim_path: vehicle.model_year
+      required_at_inference: true
+    vehicle_age:
+      derivation: vehicle_age_from_submission
+      required_at_inference: true
+    mileage:
+      claim_path: vehicle.mileage
+      required_at_inference: false
+      if_missing: abstain
+    engine_type:
+      claim_path: vehicle.engine_type
+      required_at_inference: false
+    vehicle_category:
+      derivation: vehicle_category_from_claim_or_lookup
+      required_at_inference: false
+      if_missing: absent
+    repair_category:
+      claim_path: recommended_repair.repair_category
+      required_at_inference: true
+    part_description:
+      claim_path: recommended_repair.part_description
+      required_at_inference: true
+    repair_action:
+      claim_path: recommended_repair.recommended_action
+      required_at_inference: true
+    repair_complexity:
+      derivation: repair_complexity_from_action
+      required_at_inference: false
+      if_missing: absent
+    currency:
+      claim_path: currency
+      required_at_inference: true
+    region:
+      claim_path: null
+      required_at_inference: false
+      if_missing: absent
+    price_year:
+      claim_path: null
+      required_at_inference: false
+      derivation: price_year_from_submission
+
+derivations:
+  vehicle_age_from_submission:
+    type: year_delta
+    year_claim_path: vehicle.model_year
+    reference_claim_path: submission_date
+  price_year_from_submission:
+    type: year_from_datetime
+    reference_claim_path: submission_date
+  vehicle_category_from_claim_or_lookup:
+    type: vehicle_category_from_claim_or_lookup
+  repair_complexity_from_action:
+    type: repair_complexity_from_action

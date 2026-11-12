@@ -1,0 +1,111 @@
+{
+  "updated_at": "2026-11-12T05:40:17.578670+00:00",
+  "entries": [
+    {
+      "task": "parts_cost",
+      "version": "20261112054003",
+      "model_path": "parts_cost/20261112054003/model.joblib",
+      "preprocessor_path": "parts_cost/20261112054003/preprocessor.joblib",
+      "feature_schema_hash": "7397a1f4969d8505",
+      "sklearn_version": "1.9.1",
+      "training_data_version": "data\\financial_models\\synthetic_v1\\train.csv | data\\financial_models\\synthetic_v1\\validation.csv | data\\financial_models\\synthetic_v1\\test.csv",
+      "evaluation_strategy": "holdout_validation: group_kfold on ['vehicle_make', 'vehicle_model'] (provisional until approved dataset EDA confirms)",
+      "metrics": {
+        "train": {
+          "mae": 50.23066899270514,
+          "rmse": 86.36436242621758,
+          "r2": 0.9772334960682182,
+          "median_absolute_error": 26.070823992288013
+        },
+        "validation": {
+          "mae": 61.668808499573096,
+          "rmse": 112.01815070513696,
+          "r2": 0.9576727821284773,
+          "median_absolute_error": 28.260420412879114
+        },
+        "test": {
+          "mae": 59.33932463387425,
+          "rmse": 115.379251427802,
+          "r2": 0.9600999873206121,
+          "median_absolute_error": 27.597898250524466
+        },
+        "selection_outcome": "SELECTED",
+        "selection_details": {
+          "criteria": {
+            "min_relative_mae_improvement_vs_dummy": 0.02,
+            "weak_r2_threshold": 0.0,
+            "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+          },
+          "selected_candidate": "hist_gradient_boosting",
+          "validation_mae": 61.668808499573096,
+          "validation_r2": 0.9576727821284773,
+          "dummy_validation_mae": 399.636389381076,
+          "relative_mae_improvement_vs_dummy": 0.8456877047781342,
+          "reason": "meets validation improvement and R\u00b2 criteria"
+        },
+        "provisional": true,
+        "synthetic_data_evaluation": true
+      },
+      "status": "trained",
+      "trusted": true,
+      "trained_at": "2026-11-12T05:40:03.184292+00:00",
+      "lifecycle": "experimental",
+      "synthetic_data": true,
+      "production_ready": false,
+      "algorithm": "hist_gradient_boosting"
+    },
+    {
+      "task": "labour_hours",
+      "version": "20261112054017",
+      "model_path": "labour_hours/20261112054017/model.joblib",
+      "preprocessor_path": "labour_hours/20261112054017/preprocessor.joblib",
+      "feature_schema_hash": "7397a1f4969d8505",
+      "sklearn_version": "1.9.1",
+      "training_data_version": "data\\financial_models\\synthetic_v1\\train.csv | data\\financial_models\\synthetic_v1\\validation.csv | data\\financial_models\\synthetic_v1\\test.csv",
+      "evaluation_strategy": "holdout_validation: group_kfold on ['vehicle_make', 'vehicle_model'] (provisional until approved dataset EDA confirms)",
+      "metrics": {
+        "train": {
+          "mae": 0.25961200380729355,
+          "rmse": 0.391974264816227,
+          "r2": 0.9806888635168134,
+          "median_absolute_error": 0.16668737999356287
+        },
+        "validation": {
+          "mae": 0.2939784991951627,
+          "rmse": 0.4784605256240834,
+          "r2": 0.9701697745881842,
+          "median_absolute_error": 0.17105416021851205
+        },
+        "test": {
+          "mae": 0.28841584607900583,
+          "rmse": 0.44022513624168236,
+          "r2": 0.9741338937340477,
+          "median_absolute_error": 0.1773425647693705
+        },
+        "selection_outcome": "SELECTED",
+        "selection_details": {
+          "criteria": {
+            "min_relative_mae_improvement_vs_dummy": 0.02,
+            "weak_r2_threshold": 0.0,
+            "rationale": "Candidate must improve validation MAE by at least min_relative_mae_improvement_vs_dummy (default 2%) versus dummy_mean; validation R\u00b2 at or below weak_r2_threshold yields weak performance."
+          },
+          "selected_candidate": "hist_gradient_boosting",
+          "validation_mae": 0.2939784991951627,
+          "validation_r2": 0.9701697745881842,
+          "dummy_validation_mae": 2.0308762647734344,
+          "relative_mae_improvement_vs_dummy": 0.8552454896960653,
+          "reason": "meets validation improvement and R\u00b2 criteria"
+        },
+        "provisional": true,
+        "synthetic_data_evaluation": true
+      },
+      "status": "trained",
+      "trusted": true,
+      "trained_at": "2026-11-12T05:40:17.578670+00:00",
+      "lifecycle": "experimental",
+      "synthetic_data": true,
+      "production_ready": false,
+      "algorithm": "hist_gradient_boosting"
+    }
+  ]
+}

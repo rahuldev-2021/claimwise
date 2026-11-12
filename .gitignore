@@ -1,0 +1,39 @@
+# --- Secrets (commit only *.example) ---
+.env
+.env.local
+!.env.example
+
+# --- OS / editors ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# --- Python (repo-wide) ---
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.venv/
+**/venv/
+**/*.egg-info/
+**/dist/
+**/build/
+
+# --- Node / frontend build ---
+**/node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# --- Local backend runtime data (regenerated or sensitive) ---
+backend/data/uploads/
+backend/data/rag/chroma/
+backend/data/reviewer_feedback.json
+backend/data/reports/
+
+# --- Cursor / local tooling (optional) ---
+.cursor/

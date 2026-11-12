@@ -1,0 +1,38 @@
+# PROVISIONAL — thresholds are NOT approved production rules
+provisional: true
+version: "0.0-provisional"
+description: >
+  Bands and gates for development and testing only. Calibrate against the approved dataset before operational use.
+  Financial discrepancies indicate review need, not fraud or claim invalidity.
+
+currency:
+  claim_must_match_training_currency: false
+  allowed_inference_currencies: [USD, CAD]
+  mixed_currency_training_allowed: false
+
+discrepancy_bands:
+  parts_cost_pct:
+    within_min: -25
+    within_max: 25
+    provisional: true
+  labour_hours_pct:
+    within_min: -20
+    within_max: 20
+    provisional: true
+
+abstain:
+  missing_critical_features_status: INSUFFICIENT_DATA
+  model_unavailable_status: INSUFFICIENT_DATA
+  missing_optional_high_impact_status: NEEDS_REVIEW
+
+availability:
+  unavailable_never_within_range: true
+
+rule_ids:
+  - F_CURRENCY_UNSUPPORTED
+  - F_CURRENCY_MIXED_TRAINING_BLOCKED
+  - F_MISSING_CRITICAL_FEATURE
+  - F_MODEL_UNAVAILABLE
+  - F_PARTS_OUTSIDE_BAND_PROVISIONAL
+  - F_LABOUR_OUTSIDE_BAND_PROVISIONAL
+  - F_PREDICTION_MISSING

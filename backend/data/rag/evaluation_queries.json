@@ -1,0 +1,52 @@
+[
+  {
+    "query_id": "EV-001",
+    "query": "engine rattling noise timing chain cold start",
+    "relevant_document_ids": ["DOC-001"]
+  },
+  {
+    "query_id": "EV-002",
+    "query": "brake squeal front wheels braking pad thickness",
+    "relevant_document_ids": ["DOC-002"]
+  },
+  {
+    "query_id": "EV-003",
+    "query": "engine overheating water pump impeller cooling system",
+    "relevant_document_ids": ["DOC-003"]
+  },
+  {
+    "query_id": "EV-004",
+    "query": "alternator output voltage battery warning charging",
+    "relevant_document_ids": ["DOC-004"]
+  },
+  {
+    "query_id": "EV-005",
+    "query": "blend door actuator warm air hvac clicking",
+    "relevant_document_ids": ["DOC-005"]
+  },
+  {
+    "query_id": "EV-006",
+    "query": "suspension clunk stabilizer bar end link bushings",
+    "relevant_document_ids": ["DOC-006"]
+  },
+  {
+    "query_id": "EV-007",
+    "query": "HL3Z-2001-D brake pad part number",
+    "relevant_document_ids": ["DOC-002"]
+  },
+  {
+    "query_id": "EV-008",
+    "query": "transmission shift harsh jerks valve body solenoid",
+    "relevant_document_ids": ["DOC-007"]
+  },
+  {
+    "query_id": "EV-009",
+    "query": "timing chain rattling noise tensioner",
+    "relevant_document_ids": ["DOC-008", "DOC-009"]
+  },
+  {
+    "query_id": "EV-010",
+    "query": "BR3Z-6268-A timing chain kit labour",
+    "relevant_document_ids": ["DOC-011", "DOC-010"]
+  }
+]

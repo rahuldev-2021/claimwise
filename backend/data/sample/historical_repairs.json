@@ -1,0 +1,147 @@
+[
+  {
+    "historical_repair_id": "HR-002",
+    "source_document_ids": ["DOC-002"],
+    "source_claim_id": "CLM-002",
+    "vehicle_make": "Ford",
+    "vehicle_model": "F-150",
+    "model_year": 2023,
+    "repair_category": "BRAKING",
+    "customer_complaint": "Customer reports squealing noise from front wheels when braking at low speed.",
+    "technician_diagnosis": "Measured front brake pad thickness: 1.2mm remaining on both inner pads (minimum specification 2.0mm). Outer pads at 3.1mm. Rotors show minor scoring, measured within resurfacing tolerance.",
+    "diagnostic_findings": "Front brake pad thickness 1.2mm inner; 3.1mm outer; rotors within resurfacing tolerance.",
+    "dtc_codes": [],
+    "verified_failure_mode": null,
+    "recommended_repair": null,
+    "actual_repair_performed": "Pads replaced, rotors resurfaced.",
+    "repair_outcome": "Pads replaced, rotors resurfaced. Noise eliminated.",
+    "parts_cost": null,
+    "labour_hours": null,
+    "currency": null,
+    "verification_status": "VERIFIED",
+    "synthetic": true,
+    "source_date": "2026-09-16T13:30:00Z",
+    "field_provenance": {
+      "actual_repair_performed": {
+        "provenance_kind": "explicit",
+        "document_id": "DOC-002",
+        "excerpt": "Pads replaced, rotors resurfaced. Noise eliminated."
+      },
+      "recommended_repair": {
+        "provenance_kind": "unavailable"
+      }
+    }
+  },
+  {
+    "historical_repair_id": "HR-003",
+    "source_document_ids": ["DOC-003"],
+    "source_claim_id": "CLM-003",
+    "vehicle_make": "Ford",
+    "vehicle_model": "Explorer",
+    "model_year": 2021,
+    "repair_category": "COOLING",
+    "customer_complaint": "Customer reports engine overheating after 20 minutes of highway driving.",
+    "technician_diagnosis": "Cooling system pressure test held at 16 PSI for 15 minutes, no external leaks found. Thermostat opens at 195F within specification. Water pump removed for inspection: impeller blades show significant cavitation damage and reduced flow capacity.",
+    "diagnostic_findings": "Impeller blades show significant cavitation damage.",
+    "dtc_codes": [],
+    "verified_failure_mode": null,
+    "recommended_repair": "Recommend water pump replacement.",
+    "actual_repair_performed": "Water pump replaced.",
+    "repair_outcome": "Water pump replaced. Cooling system refilled and bled. Temperature stable.",
+    "parts_cost": null,
+    "labour_hours": null,
+    "currency": null,
+    "verification_status": "VERIFIED",
+    "synthetic": true,
+    "source_date": "2026-09-17T09:00:00Z",
+    "field_provenance": {
+      "recommended_repair": {
+        "provenance_kind": "explicit",
+        "document_id": "DOC-003",
+        "excerpt": "Recommend water pump replacement."
+      },
+      "actual_repair_performed": {
+        "provenance_kind": "explicit",
+        "document_id": "DOC-003",
+        "excerpt": "Water pump replaced. Cooling system refilled and bled."
+      }
+    }
+  },
+  {
+    "historical_repair_id": "HR-009",
+    "source_document_ids": ["DOC-009"],
+    "source_claim_id": null,
+    "vehicle_make": "Ford",
+    "vehicle_model": "Mustang",
+    "model_year": 2020,
+    "repair_category": "ENGINE",
+    "customer_complaint": "Customer complained of engine rattling during acceleration.",
+    "technician_diagnosis": "Root cause identified as timing chain tensioner failure.",
+    "diagnostic_findings": null,
+    "dtc_codes": [],
+    "verified_failure_mode": null,
+    "recommended_repair": null,
+    "actual_repair_performed": "Timing chain, tensioner and guides replaced.",
+    "repair_outcome": "Timing chain tensioner replaced. Noise resolved.",
+    "parts_cost": "900",
+    "labour_hours": "12",
+    "currency": "USD",
+    "verification_status": "VERIFIED",
+    "synthetic": true,
+    "source_date": "2025-03-10T14:00:00Z",
+    "field_provenance": {
+      "parts_cost": {
+        "provenance_kind": "derived",
+        "document_id": "DOC-009",
+        "excerpt": "Total parts cost $900.",
+        "transformation_rule": "currency_amount_parse_v1"
+      },
+      "labour_hours": {
+        "provenance_kind": "derived",
+        "document_id": "DOC-009",
+        "excerpt": "Labour 12 hours.",
+        "transformation_rule": "labour_hours_parse_v1"
+      },
+      "technician_diagnosis": {
+        "provenance_kind": "unverified",
+        "document_id": "DOC-009",
+        "excerpt": "Root cause identified as timing chain tensioner failure."
+      }
+    }
+  },
+  {
+    "historical_repair_id": "HR-010",
+    "source_document_ids": ["DOC-010"],
+    "source_claim_id": null,
+    "vehicle_make": "Ford",
+    "vehicle_model": "Mustang",
+    "model_year": 2019,
+    "repair_category": "ENGINE",
+    "customer_complaint": "Similar rattling noise at idle.",
+    "technician_diagnosis": null,
+    "diagnostic_findings": null,
+    "dtc_codes": [],
+    "verified_failure_mode": null,
+    "recommended_repair": null,
+    "actual_repair_performed": "Timing chain replacement performed including guides and tensioner.",
+    "repair_outcome": "Timing chain kit replaced. Noise resolved.",
+    "parts_cost": "1750",
+    "labour_hours": "18",
+    "currency": "USD",
+    "verification_status": "VERIFIED",
+    "synthetic": true,
+    "source_date": "2024-11-20T10:00:00Z",
+    "field_provenance": {
+      "source_claim_id": {
+        "provenance_kind": "unavailable",
+        "excerpt": "DOC-010 references CLM-008 but conflicts with DOC-008 vehicle year; association withheld."
+      },
+      "parts_cost": {
+        "provenance_kind": "derived",
+        "document_id": "DOC-010",
+        "excerpt": "Parts cost $1,750.",
+        "transformation_rule": "currency_amount_parse_v1"
+      }
+    }
+  }
+]
